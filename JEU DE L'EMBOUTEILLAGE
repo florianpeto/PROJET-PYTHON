@@ -1,0 +1,44 @@
+mot_chercher = input("Donne moi un mot: ")
+derniere_lettre = mot_chercher[-1]
+resultat= ""
+for char in mot_chercher:
+        if char.lower() == derniere_lettre.lower():
+            resultat += char + "  "
+        else:
+            resultat += "?  "
+print(f"Voici le mot a chercher: {resultat.strip()}")
+lettre = set()
+embouteillage =[]
+while True :
+    nouvelle_lettre =input("Donne moi une lettre: ")
+    if nouvelle_lettre.lower() in lettre:
+            lettre_sorted = sorted(lettre, reverse=True)
+            print(f"Lettres déjà essayées : {' '.join(lettre_sorted)}")
+            continue
+    lettre.add( nouvelle_lettre)
+    if nouvelle_lettre.lower() not in mot_chercher.lower():
+            embouteillage.extend(["o##o>", "(o##o)", "[o""o]", ":","/˳˳#˳˳\ ",  "*CRASH*"])
+
+    print("Lettre deja jouer: ", lettre)
+    print(" Voitures dans l'embouteillage :", " : ".join(embouteillage))
+    resultat = ""
+    for char in mot_chercher:
+        if char.lower() == derniere_lettre.lower() or char.lower() in lettre:
+         resultat += char + "  "
+        else:
+          resultat += "?  "
+
+    print(f"Voici le mot a chercher : {resultat}")
+
+    if resultat.replace(" ", "").lower() == mot_chercher.lower():
+     print("Félicitations, vous avez deviné le mot ")
+     break
+
+    if len(embouteillage) == 7:
+        print("Désolé, l'embouteillage est complet Vous avez perdu.")
+        print(f"Le mot était : {mot_chercher}")
+        break
+print("Merci pour la participation")    
+
+
+
